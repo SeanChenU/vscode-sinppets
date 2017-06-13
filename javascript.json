@@ -1,0 +1,354 @@
+{
+  /*
+  	// Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+  	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+  	// same ids are connected.
+  	// Example:
+  	"Print to console": {
+  		"prefix": "log",
+  		"body": [
+  			"console.log('$1');",
+  			"$2"
+  		],
+  		"description": "Log output to console"
+  	}
+  */
+  "Mibus GET": {
+    "prefix": "miGET",
+    "body": [
+      "$.get(url)",
+      "\t.then(function(res) {",
+      "\t\tif (res.success) {",
+      "\t\t\tLogHelper.logApi(APINames.${1:api-name}, res);",
+      "\t\t\tResHelper.alertOk(res);",
+      "\t\t\t// Do something here",
+      "\t\t\t$0",
+      "\t\t} else {",
+      "\t\t\tResHelper.alertError(res);",
+      "\t\t}",
+      "\t}, function(error) {",
+      "\t\tResHelper.alertErrorObject(error);",
+      "\t});"
+    ],
+    "description": "MiBus GET helper"
+  },
+
+  "Query builder": {
+    "prefix": "QueryBuilderExample",
+    "body": [
+      "// Build query here",
+      "var url = APIBuilder.newWithQueries(APINames.WriteLocationLine, [",
+      "\tQueryBuilder.formData([",
+      "\t\t'getOnAddress',",
+      "\t\t'getOffAddress',",
+      "\t]),",
+      "\tQueryBuilder.formTaitungCityQuery('getOnCounty'),",
+      "\tQueryBuilder.formTaitungAreaQuery('getOnArea', 'getOnCounty'),",
+      "\tQueryBuilder.formTaitungCityQuery('getOffCounty'),",
+      "\tQueryBuilder.formTaitungAreaQuery('getOffArea', 'getOffCounty'),",
+      "]); // url building",
+      "url = url.appendQuery({",
+      "\t'caseSysid': QueryBuilder.getMemberSysid(),",
+      "\t'getOnLatitude': location.lat,",
+      "\t'getOnLongitude': location.lng,",
+      "\t'getOffLatitude': offLocation.lat,",
+      "\t'getOffLongitude': offLocation.lng",
+      "});"
+    ],
+    "description": "Query builder usage example for MiBus"
+  },
+
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function(${1:param}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "func"
+  },
+
+  "SpinnerDialogShow": {
+    "prefix": "spinshow",
+    "body": "window.plugins.spinnerDialog.show(\"$0\");",
+    "description": "Spinner dialog show with msg"
+  },
+
+  "SpinnerDialogHide": {
+    "prefix": "spinhide",
+    "body": "window.plugins.spinnerDialog.hide();",
+    "description": "Spinner dialog hide"
+  },
+
+  "deviceready": {
+    "prefix": "deviceready",
+    "body": [
+      "document.addEventListener('deviceready', function() {",
+      "\t$0",
+      "}, false)"
+    ],
+    "description": "deviceready"
+  },
+
+
+  // React Native
+  "arrow-func": {
+    "prefix": "arr",
+    "body": "() => {$0}"
+  },
+
+  "import-react": {
+    "prefix": "rcImport",
+    "body": [
+      "import React, { Component } from 'react';",
+      "import {",
+      "\tStyleSheet,",
+      "\tAppRegistry,",
+      "\tText,",
+      "\tView,",
+      "\tDimensions",
+      "\tScrollView",
+      "} from 'react-native';"
+    ],
+    "description": "import react basics"
+  },
+
+  "react-new-class": {
+    "prefix": "rcExportClass",
+    "body": [
+      "export default class $1 extends Component {",
+      "\tconstructor(props) {",
+      "\t\tsuper(props);",
+      "\t}\n",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t$0",
+      "\t\t)",
+      "\t}",
+      "}"
+    ],
+    "description": "React create export class"
+  },
+
+  "react-style-import": {
+    "prefix": "rcStyleImport",
+    "body": [
+      "import { StyleSheet, Dimensions, Platform } from 'react-native';",
+      "const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');"
+    ],
+    "description": "React style import"
+  },
+
+  "react-export-style": {
+    "prefix": "rcExportStyle",
+    "body": [
+      "export default StyleSheet.create({",
+      "\t$1: {",
+      "\t\t$0",
+      "\t}",
+      "})"
+    ],
+    "description": ": React export style"
+  },
+
+  "react-component-style": {
+    "prefix": "rcStyle",
+    "body": [
+      "style={{",
+      "\t$0",
+      "}}"
+    ],
+    "description": "React component style"
+  },
+
+  "react-component-style-quick": {
+    "prefix": "s=",
+    "body": [
+      "style={{$0}}"
+    ],
+    "description": "React component style"
+  },
+
+  "react-status-bar": {
+    "prefix": "rcStatusBar",
+    "body": [
+      "<StatusBar",
+      "\tbackgroundColor='transparent'",
+      "\tbarStyle='light-content'",
+      "/>"
+    ],
+    "description": "React StatusBar"
+  },
+
+  "react-onLayout": {
+    "prefix": "rcOnLayout",
+    "body": [
+      "onLayout={(event) => {",
+      "\tvar {x, y, width, height} = event.nativeEvent.layout;",
+      "}}"
+    ]
+  },
+
+  "react-import-something": {
+    "prefix": "impp",
+    "body": "import $0 from '$1'"
+  },
+
+  "react-import-component-general": {
+    "prefix": "impg",
+    "body": "import $0 from '../components/General$1'"
+  },
+
+  "react-import-proptypes": {
+    "prefix": "rcImportPropTypes",
+    "body": "import PropTypes from 'prop-types';"
+  },
+
+  "react-import-nav": {
+    "prefix": "rcimpnav",
+    "body": "import { NavigationBar, NavigationBarBackButton, NavigationTitle } from '../General/NavigationBar';"
+  },
+
+  "react-proptypes": {
+    "prefix": "rcPropTypes",
+    "body": [
+      "$1.propTypes = {",
+      "\t$0: PropTypes.number,",
+      "\theader: PropTypes.element.isRequired",
+      "}"
+    ]
+  },
+
+  // React-navigation
+  "rc-nav-params": {
+    "prefix": "rcNavParams",
+    "body": [
+      "this.props.navigation.state.params.$0"
+    ]
+  },
+
+  "rc-nav-hide-header": {
+    "prefix": "rcNavHideHeader",
+    "body": [
+      "static navigationOptions = {",
+      "\theader: {",
+      "\t\tvisible: false",
+      "\t},",
+      "}"
+    ],
+    "description": ""
+  },
+
+  "rc-nav-back": {
+    "prefix": "rcNavBack",
+    "body": [
+      "this.props.navigation.goBack();"
+    ]
+  },
+
+  "rc-nav-navigate": {
+    "prefix": "rcNavNavigate",
+    "body": [
+      "this.props.navigation.navigate('$0');"
+    ]
+  },
+
+  "rc-new-component": {
+    "prefix": "rcNewComponent",
+    "body": [
+      "// @cpn-scr $1",
+      "// @cpn-des $2",
+      "",
+      "import React, { Component } from 'react';",
+      "import {",
+      "\tStyleSheet,",
+      "\tAppRegistry,",
+      "\tText,",
+      "\tView,",
+      "} from 'react-native';",
+      "",
+      "import PropTypes from 'prop-types';",
+      "",
+      "export default class $3 extends Component {",
+      "\tstatic propTypes = {",
+      "\t\t: PropTypes.number,",
+      "\t\theader: PropTypes.element.isRequired",
+      "\t}",
+      "",
+      "\tconstructor(props) {",
+      "\t\tsuper(props);",
+      "\t}",
+      "",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t<View>",   
+      "\t\t\t\t$0",
+      "\t\t\t</View>",
+      "\t\t)",
+      "\t}",
+      "}"
+    ]
+  },
+
+  // Listview
+  "rn-listview": {
+    "prefix": "rnlistds",
+    "body": [
+      "const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});",
+      "var dataSource = ds.cloneWithRows([",
+      "\t{name: '服务条款', hasArrow: true},",
+      "\t{name: '隐私权政策', hasArrow: true},",
+      "\t{name: '查看阿那亚订阅号', hasArrow: true},",
+      "\t{name: '前往App Store评分', hasArrow: true},",
+      "\t{name: '客服', hasArrow: true},",
+      "\t{name: '版本号', hasArrow: false}",
+      "]);"
+    ]
+  },
+
+  "rn-listview-component": {
+    "prefix": "rnlistcpn",
+    "body": [
+      "<ListView",
+      "\tdataSource={dataSource}",
+      "\trenderRow={(rowData) => {",
+      "\t\treturn this._getRow(rowData.name, rowData.hasArrow)",
+      "\t}}",
+      "/>"
+    ]
+  },
+
+  // Components shotcuts
+  "rn-nicetext": {
+    "prefix": "rnNiceText",
+    "body": "<NiceText text={'$1'} color={'$2'} fontFamily={'$3'} fontSize={$4} style={{$0}}/>"
+  },
+
+  "rc-textinput": {
+    "prefix": "rnTextInput",
+    "body": "<TextInput editable={true} style={{width: 200, height: 30, color: '#595757', fontSize: 18}} placeholder={'请输入标题'} placeholderTextColor={'#595757'} selectionColor={CommonColors.ActiveGreen} onChangeText={(text) => {this.setState({title: text})}} ref='titleInput'/>"
+  },
+
+  // mobx
+  "rc-new-mobx-store": {
+    "prefix": "rcNewStoreMobx",
+    "body": [
+      "import mobx from 'mobx';",
+      "import {observable} from 'mobx'",
+      "",
+      "class ObservableLoginStore {",
+      "\t@observable loginObject = {",
+      "\t\t",
+      "\t};",
+      "",
+      "\tconstructor() {",
+      "\t\tmobx.autorun(() => {console.log(`mobx autorun -> `)});",
+      "\t}",
+      "}",
+      "",
+      "const observableLoginStore  = new ObservableLoginStore();",
+      "export default observableLoginStore;"
+    ]
+  } 
+}
